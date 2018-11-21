@@ -80,7 +80,7 @@ public class UserDbDAO implements IUserRepository
             try (Connection con = dc.getConnection())
             {
              Statement statement = con.createStatement();
-             ResultSet rs = statement.executeQuery("Select * FROM user;");
+             ResultSet rs = statement.executeQuery("Select * FROM [user];");
              while (rs.next())
              {
                  if (rs.getInt("id")==id)
@@ -100,7 +100,7 @@ public class UserDbDAO implements IUserRepository
         {
             Logger.getLogger(MovieDbDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(""+foundUser.getName());
+        
         return foundUser;
     }
 
@@ -114,14 +114,14 @@ public class UserDbDAO implements IUserRepository
             DatabaseConnection dc = new DatabaseConnection();
             Connection con = dc.getConnection();
             Statement statement = con.createStatement();
-            ResultSet rs = statement.executeQuery("Select * FROM user;");
+            ResultSet rs = statement.executeQuery("Select * FROM [user];");
              while (rs.next())
              {
                  if (rs.getInt("id")==id)
                  {
                      
                      PreparedStatement pstmt = con.prepareStatement(
-                    "UPDATE Movie SET name = (?) WHERE id = (?)");
+                    "UPDATE [user] SET name = (?) WHERE id = (?)");
                      pstmt.setString(1, user.getName());
                      pstmt.setInt(2, id);
                      pstmt.execute();

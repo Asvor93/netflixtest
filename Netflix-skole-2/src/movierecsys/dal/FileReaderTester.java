@@ -29,54 +29,12 @@ public class FileReaderTester
      */
     public static void main(String[] args) throws IOException
     {
-  
-      //mitigateMovies();
-      //mitigateUsers();
-      //mitigateRatings();
-        RatingDbDAO rating = new RatingDbDAO();
-        
-        System.out.println("" + rating.getAllRatings().size());
-      
-             
+
+
         
     }
     
-   /*public static void mitigateMovies() throws IOException 
-   {
-       SQLServerDataSource ds = new SQLServerDataSource();
-        ds.setServerName("10.176.111.31");
-        ds.setDatabaseName("mrs4");
-        ds.setUser("CS2018A_4");
-        ds.setPassword("CS2018A_4");
-        
-        MovieDAO mvDao = new MovieDAO();
-        List<Movie> movies = mvDao.getAllMovies();
-        
-        try (Connection con = ds.getConnection())
-        {
-            Statement statement = con.createStatement();
-            
-            for (Movie movie: movies)
-            {
-                String sql = "INSERT INTO movie (id, year, title) VALUES("
-                        + movie.getId() + ","
-                        + movie.getYear() + ",'"
-                        + movie.getTitle().replace("'", "") + "');";
-                    
-                    System.out.println(sql);
-                    int i = statement.executeUpdate(sql);
-                    System.out.println("" + i);
-                
-            }
-      
-            
-        } 
-         catch (SQLException ex)
-        {
-            ex.printStackTrace();
-        }*/
-        
-    
+
     public static void mitigateUsers() throws IOException
     {
         SQLServerDataSource ds = new SQLServerDataSource();

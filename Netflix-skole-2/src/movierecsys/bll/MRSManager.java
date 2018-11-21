@@ -16,6 +16,7 @@ import movierecsys.be.Rating;
 import movierecsys.be.User;
 import movierecsys.bll.exception.MovieRecSysException;
 import movierecsys.dal.MovieDAO;
+import movierecsys.dal.MovieDbDAO;
 
 /**
  *
@@ -23,11 +24,11 @@ import movierecsys.dal.MovieDAO;
  */
 public class MRSManager implements MRSLogicFacade {
 
-    private final MovieDAO movieDAO;
+    private final MovieDbDAO movieDbDAO;
     
     public MRSManager()
     {
-        movieDAO = new MovieDAO();
+        movieDbDAO = new MovieDbDAO();
     }
     
     @Override
@@ -55,7 +56,7 @@ public class MRSManager implements MRSLogicFacade {
     List<Movie> allMovies= new ArrayList<>();
         try
         {
-            allMovies = movieDAO.getAllMovies();
+            allMovies = movieDbDAO.getAllMovies();
         } catch (IOException ex)
         {
             Logger.getLogger(MRSManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,7 +80,7 @@ public class MRSManager implements MRSLogicFacade {
     Movie newMovie = null;
         try
         {
-            newMovie = movieDAO.createMovie(year, title);
+            newMovie = movieDbDAO.createMovie(year, title);
         } catch (IOException ex)
         {
             Logger.getLogger(MRSManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,7 +100,7 @@ public class MRSManager implements MRSLogicFacade {
     {
         try
         {
-            movieDAO.deleteMovie(movie);
+            movieDbDAO.deleteMovie(movie);
         } catch (IOException ex)
         {
             Logger.getLogger(MRSManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -141,7 +142,7 @@ public class MRSManager implements MRSLogicFacade {
     {
         try
         {
-            return movieDAO.getAllMovies();
+            return movieDbDAO.getAllMovies();
         } catch (IOException ex)
         {
 //            Logger.getLogger(MRSManager.class.getName()).log(Level.SEVERE, null, ex); You could log an exception

@@ -134,7 +134,8 @@ public class MovieDbDAO implements IMovieRepository
         {
             Logger.getLogger(MovieDbDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-   return allMovies;
+        allMovies.sort( Comparator.comparing( Movie::getId ) ); 
+        return allMovies;
     }
 
     @Override

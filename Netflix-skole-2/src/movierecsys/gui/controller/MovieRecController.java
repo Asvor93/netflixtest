@@ -21,6 +21,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import movierecsys.be.Movie;
+import movierecsys.be.User;
 import movierecsys.bll.MRSManager;
 import movierecsys.bll.exception.MovieRecSysException;
 import movierecsys.dal.MovieDAO;
@@ -59,6 +60,8 @@ public class MovieRecController implements Initializable
     ObservableList<String> list = FXCollections.observableArrayList();
     @FXML
     private Button remove;
+    
+    private User userLogin;
 
 
     public MovieRecController()
@@ -77,6 +80,9 @@ public class MovieRecController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         lstMovies.setItems(movieModel.getMovies());
+       
+        
+        
 
        
 
@@ -129,6 +135,11 @@ public class MovieRecController implements Initializable
     Movie toDelete = lstMovies.getSelectionModel().getSelectedItem();
     movieModel.deleteMovie(toDelete);
     
+    }
+    
+    public void setUser(User user)
+    {
+    userLogin=user;
     }
 
 

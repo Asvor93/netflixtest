@@ -20,6 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import movierecsys.be.Movie;
 import movierecsys.be.User;
@@ -41,6 +43,8 @@ public class LoginController implements Initializable
     private Button login;
     
     UserDbDAO userData;
+    @FXML
+    private AnchorPane rootPane2;
 
     /**
      * Initializes the controller class.
@@ -64,11 +68,17 @@ public class LoginController implements Initializable
     private void userLogin(ActionEvent event) throws IOException
     {
     User user = listView.getSelectionModel().getSelectedItem();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
+    loader.load();
+    MovieRecController mController = loader.getController();
+    mController.setUser(user);
     
-//    stage.setScene(scene);
-//    stage.show();
-//    }
-//    
-//    privat void setStage (Stage stage)
+    Stage stage = (Stage) rootPane2.getScene().getWindow();
+    Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
+    Scene scene = new Scene(root);        
+    stage.setScene(scene);
+    stage.show();
+    
+    
     }
 }

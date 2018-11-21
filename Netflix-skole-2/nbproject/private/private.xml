@@ -3,25 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/be/Rating.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/gui/controller/MovieRecController.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/bll/MRSManager.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/be/User.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/UserDAO.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/bll/util/MovieSearcher.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/FileReaderTester.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/IMovieRepository.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/UserDbDAO.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/IUserRepository.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/DatabaseConnection.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/bll/exception/MovieRecSysException.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/RatingDbDAO.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/IRatingRepository.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/gui/controller/MovieModel.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/MovieDAO.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/bll/MRSLogicFacade.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/bll/util/MovieRecommender.java</file>
-            <file>file:/C:/Users/Asvør/Desktop/Skúla/Github/Netflix-skole-2/src/movierecsys/dal/MovieDbDAO.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/view/MovieRecView.fxml</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/bll/MRSManager.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/view/Login.fxml</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/model/MovieModel.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/dal/RatingDbDAO.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/dal/MovieDbDAO.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/controller/MovieRecController.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/controller/LoginController.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/OwsMain.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/controller/MovieModel.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/dal/UserDbDAO.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/be/User.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/dal/FileReaderTester.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/dal/DatabaseConnection.java</file>
         </group>
     </open-files>
 </project-private>

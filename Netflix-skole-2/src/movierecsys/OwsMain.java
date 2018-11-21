@@ -21,10 +21,18 @@ public final class OwsMain extends Application
     @Override
     public void start(Stage stage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/Login.fxml"));
         Scene scene = new Scene(root);
+        
+        Parent root2 = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
+        Scene scene2 = new Scene(root2);
+        
         stage.setScene(scene);
         stage.show();
+//        Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     /**

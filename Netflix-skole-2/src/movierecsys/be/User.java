@@ -56,5 +56,13 @@ public class User
     {
         return name;
     }
+    
+    @Override
+    public String toString()
+    {
+        String user = "Id: "+id+"   Name:"+name;
+        return user;
+    }
+    
 
 }

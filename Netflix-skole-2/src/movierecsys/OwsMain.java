@@ -24,9 +24,6 @@ public final class OwsMain extends Application
         Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/Login.fxml"));
         Scene scene = new Scene(root);
         
-        Parent root2 = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
-        Scene scene2 = new Scene(root2);
-        
         stage.setScene(scene);
         stage.show();
 //        Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));

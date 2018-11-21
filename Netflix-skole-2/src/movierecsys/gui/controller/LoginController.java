@@ -67,18 +67,18 @@ public class LoginController implements Initializable
     @FXML
     private void userLogin(ActionEvent event) throws IOException
     {
-    User user = listView.getSelectionModel().getSelectedItem();
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
-    loader.load();
-    MovieRecController mController = loader.getController();
-    mController.setUser(user);
+        User user = listView.getSelectionModel().getSelectedItem();
     
-    Stage stage = (Stage) rootPane2.getScene().getWindow();
-    Parent root = FXMLLoader.load(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
-    Scene scene = new Scene(root);        
-    stage.setScene(scene);
-    stage.show();
-    
-    
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
+        Parent root = (Parent)loader.load();
+        
+        MovieRecController mController = loader.getController();
+        mController.setUser(user);
+        Stage stage = (Stage) rootPane2.getScene().getWindow();   // skriv new stage hvis det skal være i et nyt vindue
+        stage.setScene(new Scene(root));
+        stage.show();
+        
+        
     }
+ 
 }

@@ -19,6 +19,7 @@
                   <Font name="Book Antiqua Bold" size="30.0" />
                </font>
             </Label>
+            <Label fx:id="navn" prefHeight="21.0" prefWidth="196.0" text="Username" />
          </children>
          <padding>
             <Insets bottom="10.0" />

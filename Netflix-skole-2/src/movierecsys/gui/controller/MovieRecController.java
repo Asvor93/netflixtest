@@ -18,8 +18,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import movierecsys.be.Movie;
 import movierecsys.be.User;
 import movierecsys.bll.MRSManager;
@@ -62,6 +64,8 @@ public class MovieRecController implements Initializable
     private Button remove;
     
     private User userLogin;
+    @FXML
+    private Label navn;
 
 
     public MovieRecController()
@@ -79,12 +83,8 @@ public class MovieRecController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        lstMovies.setItems(movieModel.getMovies());
        
-        
-        
-
-       
+        lstMovies.setItems(movieModel.getMovies());   
 
     }
 
@@ -104,6 +104,7 @@ public class MovieRecController implements Initializable
          
     {
       String input = txtMovieSearch.getText();
+      
       
       ObservableList<Movie> movieList = FXCollections.observableArrayList(manager.searchMovies(input));
       lstMovies.setItems(movieList);
@@ -140,6 +141,9 @@ public class MovieRecController implements Initializable
     public void setUser(User user)
     {
     userLogin=user;
+    navn.setText(user.getName());
+    
+    
     }
 
 

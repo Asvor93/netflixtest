@@ -5,6 +5,11 @@
  */
 package movierecsys.be;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import movierecsys.dal.MovieDbDAO;
+
 /**
  *
  * @author pgn
@@ -77,5 +82,17 @@ public class Rating
     {
         return rating;
     }
+    
+    @Override
+    public String toString(){
+    
+    MovieDbDAO mDB = new MovieDbDAO();
+    String ratingString= "Movie: "+movieId+"   Rating:"+rating;
+    return ratingString;
+    }
+    
+
+    
+    
 
 }

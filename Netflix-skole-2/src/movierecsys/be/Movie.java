@@ -15,6 +15,8 @@ public class Movie
     private final int id;
     private String title;
     private int year;
+    private double combinedRatingScore;
+    private int counter=0;
 
     public Movie(int id, int year, String title)
     {
@@ -59,6 +61,15 @@ public class Movie
         return "Movie{" + "id=" + id + ", title=" + title + ", year=" + year + '}';
     }
     
+    public void addRating(int rating){
+        combinedRatingScore+=rating;
+    }
+    public void addCounter(){
+        counter++;
+    }
     
-
+    public double getAverage(){
+    double average = combinedRatingScore/counter;
+    return average;
+    }
 }

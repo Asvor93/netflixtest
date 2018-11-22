@@ -18,36 +18,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import movierecsys.be.Movie;
+import movierecsys.be.Rating;
 import movierecsys.be.User;
-import movierecsys.bll.MRSManager;
-import movierecsys.dal.UserDbDAO;
-
-
+import movierecsys.dal.RatingDbDAO;
 
 /**
  * FXML Controller class
  *
  * @author Philip
  */
-public class LoginController implements Initializable
+public class RatingController implements Initializable
 {
 
     @FXML
-    private ListView<User> listView;
+    private ListView<Rating> listViewRatings;
     @FXML
-    private Button login;
+    private Label userName;
     
-    UserDbDAO userData;
+    private User userLogin;
     @FXML
-    private AnchorPane rootPane2;
-    
-    MRSManager manager = new MRSManager();
+    private AnchorPane anchorPane2;
 
     /**
      * Initializes the controller class.
@@ -55,27 +50,40 @@ public class LoginController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-      
-      ObservableList<User> userList = FXCollections.observableArrayList(manager.getAllUsers());
-      listView.setItems(userList);
-      
+
     }    
+       public void setUser(User user)
+    {
+    userLogin=user;
+    userName.setText(user.getName());
+
+    }
+       public void setListView()
+       {
+           //Burde køre igennem model -> MRSManager->DAO  
+           RatingDbDAO ratingData = new RatingDbDAO();
+        try
+        {
+            ObservableList<Rating> ratingList = FXCollections.observableArrayList(ratingData.getRatings(userLogin));
+            listViewRatings.setItems(ratingList);
+        } catch (IOException ex)
+        {
+            Logger.getLogger(RatingController.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+       }
 
     @FXML
-    private void userLogin(ActionEvent event) throws IOException
+    private void back(ActionEvent event) throws IOException
     {
-        User user = listView.getSelectionModel().getSelectedItem();
-    
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/movierecsys/gui/view/MovieRecView.fxml"));
         Parent root = (Parent)loader.load();
-        
+//        
         MovieRecController mController = loader.getController();
-        mController.setUser(user);
-        Stage stage = (Stage) rootPane2.getScene().getWindow();   // skriv new stage hvis det skal være i et nyt vindue
+        mController.setUser(userLogin);
+        Stage stage = (Stage) anchorPane2.getScene().getWindow();   // skriv new stage hvis det skal være i et nyt vindue
         stage.setScene(new Scene(root));
         stage.show();
         
-        
     }
- 
+    
 }

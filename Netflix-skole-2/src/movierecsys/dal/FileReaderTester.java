@@ -30,8 +30,9 @@ public class FileReaderTester
     public static void main(String[] args) throws IOException
     {
 
-UserDbDAO testerklasse = new UserDbDAO();
-        System.out.println(""+testerklasse.getAllUsers().size());
+RatingDbDAO testerklasse = new RatingDbDAO();
+User test = new User(7,"Georgi Facello");
+ System.out.println(""+testerklasse.getRatings(test).size());
         
     }
     

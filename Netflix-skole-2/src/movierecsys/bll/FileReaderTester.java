@@ -30,7 +30,9 @@ public class FileReaderTester
     {
 
         MRSManager test = new MRSManager();
-        List<Movie> dragon = test.searchMovies("man");
+        test.getAllTimeTopRatedMovies();
+        
+    
         
         
         

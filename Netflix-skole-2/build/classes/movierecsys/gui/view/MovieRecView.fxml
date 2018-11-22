@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movierecsys.gui.controller.MovieRecController">
+<BorderPane fx:id="anchorPane2" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movierecsys.gui.controller.MovieRecController">
    <top>
       <VBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
@@ -34,11 +34,16 @@
          <children>
             <TextField fx:id="txtMovieSearch" promptText="search movies" />
             <Button fx:id="søgbtn" mnemonicParsing="false" onAction="#FindMovie" text="Søg" />
+            <TextField fx:id="ratingInt" promptText="Type in rating" />
+            <Button fx:id="rateMovie" mnemonicParsing="false" onAction="#rateMovieButton" text="Rate movie" />
             <ListView fx:id="lstMovies" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
             <Button fx:id="remove" mnemonicParsing="false" onAction="#removeButton" text="Slet film" />
             <Button fx:id="addMovie" mnemonicParsing="false" onAction="#addMovie" text="Tilføj film" />
             <TextField fx:id="name" prefHeight="31.0" prefWidth="156.0" promptText="Navn" />
             <TextField fx:id="year" promptText="År" />
+            <Button fx:id="Ratings" mnemonicParsing="false" onAction="#Ratings" text="Ratings" />
+            <Button mnemonicParsing="false" onAction="#recMovies" text="Get recommended movies" />
+            <Button mnemonicParsing="false" onAction="#topRated" text="Show all time top rated movies" />
             <DialogPane />
          </children>
       </VBox>

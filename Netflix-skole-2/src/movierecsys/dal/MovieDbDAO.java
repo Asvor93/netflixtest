@@ -217,11 +217,21 @@ public class MovieDbDAO implements IMovieRepository
     @Override
     public int getNextAvailableMovieID() throws IOException
     {
-        List<Movie> allMovies = getAllMovies();
-        allMovies.sort( Comparator.comparing( Movie::getId ) ); 
-        int highId = allMovies.get(allMovies.size() - 1).getId();
-        System.out.println("" + highId);
-        return highId + 1;
+//        List<Movie> allMovies = getAllMovies();
+//        allMovies.sort( Comparator.comparing( Movie::getId ) ); 
+//        int highId = allMovies.get(allMovies.size() - 1).getId();
+//        System.out.println("" + highId);
+//        return highId + 1;
+          int nextId=0;
+          List<Movie>allMovies = getAllMovies();
+          allMovies.sort( Comparator.comparing( Movie::getId ) ); 
+          for (int i=0;i<allMovies.size();i++){
+              if (allMovies.get(i).getId()!=i+1){
+                  nextId=i+1;
+                  return nextId;}
+              }
+          return nextId;
+          
         
     }
 }

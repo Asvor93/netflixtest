@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -75,9 +76,9 @@ public class RatingDbDAO implements IRatingRepository
             ResultSet rs = statement.executeQuery("Select * FROM Rating;");
              while (rs.next())
              {
-                 if (rs.getInt("movie")==movie && rs.getInt("user")==user)
+                 if (rs.getInt("movieId")==movie && rs.getInt("userId")==user)
                  {
-                     PreparedStatement pstmt = con.prepareStatement("DELETE FROM Rating WHERE movie=(?) AND [user]=(?)");
+                     PreparedStatement pstmt = con.prepareStatement("DELETE FROM Rating WHERE movieId=(?) AND userId=(?)");
                      pstmt.setInt(1, movie);
                      pstmt.setInt(2, user);
                      pstmt.execute();
@@ -134,6 +135,7 @@ public class RatingDbDAO implements IRatingRepository
         {
             Logger.getLogger(MovieDbDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+   allRatings.sort( Comparator.comparing( Rating::getMovie ) ); 
    return allRatings;
     }
 
@@ -152,11 +154,11 @@ public class RatingDbDAO implements IRatingRepository
              ResultSet rs = statement.executeQuery("Select * FROM Rating;");
              while (rs.next())
              {
-                 if (rs.getInt("user")==user.getId())
+                 if (rs.getInt("userId")==user.getId())
                  {
-                     System.out.println("Rating af bruger fundet");
-                     int movie = rs.getInt("movie");
-                     int userid = rs.getInt("user");
+                    
+                     int movie = rs.getInt("movieId");
+                     int userid = rs.getInt("userId");
                      int rating = rs.getInt("rating");
                      Rating ratingToAdd = new Rating(movie, userid, rating);
                      ratings.add(ratingToAdd);
@@ -172,7 +174,7 @@ public class RatingDbDAO implements IRatingRepository
         {
             Logger.getLogger(MovieDbDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        ratings.sort( Comparator.comparing( Rating::getMovie ) ); 
         return ratings;
     }
 
@@ -190,9 +192,9 @@ public class RatingDbDAO implements IRatingRepository
             ResultSet rs = statement.executeQuery("Select * FROM Rating;");
              while (rs.next())
              {
-                 if (rs.getInt("movie")==movie && rs.getInt("user")==user)
+                 if (rs.getInt("movieId")==movie && rs.getInt("userId")==user)
                  {
-                     PreparedStatement pstmt = con.prepareStatement("UPDATE Rating SET rating = (?) WHERE movie = (?) AND [user] = (?)");
+                     PreparedStatement pstmt = con.prepareStatement("UPDATE Rating SET rating = (?) WHERE movieId = (?) AND userId = (?)");
                      pstmt.setInt(1, newRating);
                      pstmt.setInt(2, movie);
                      pstmt.setInt(3, user);

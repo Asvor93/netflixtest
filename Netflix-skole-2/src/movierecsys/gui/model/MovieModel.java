@@ -8,6 +8,7 @@ package movierecsys.gui.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import movierecsys.be.Movie;
+import movierecsys.be.User;
 import movierecsys.bll.MRSLogicFacade;
 import movierecsys.bll.MRSManager;
 import movierecsys.bll.exception.MovieRecSysException;
@@ -20,14 +21,21 @@ public class MovieModel
 {
 
     private ObservableList<Movie> movies;
+    private ObservableList<User> users;
+    private ObservableList<Movie> topMovies;
 
     private MRSLogicFacade logiclayer;
 
     public MovieModel() throws MovieRecSysException
     {
         movies = FXCollections.observableArrayList();
+        users = FXCollections.observableArrayList();
+        topMovies = FXCollections.observableArrayList();
         logiclayer = new MRSManager();
         movies.addAll(logiclayer.getAllMovies());
+        
+        
+        
     }
 
     /**
@@ -49,6 +57,24 @@ public class MovieModel
     {
         logiclayer.deleteMovie(movie);
         movies.remove(movie);
+    }
+    
+    public ObservableList<User> getUsers()
+    {
+        users.addAll(logiclayer.getAllUsers());
+        return users;
+    }
+    
+    public void rateMovie(Movie movie, User user, int rating)
+    {
+        logiclayer.rateMovie(movie, user, rating);
+    }
+    
+    
+    public ObservableList<Movie> getAllTimeBestMovies()
+    {
+    topMovies.addAll(logiclayer.getAllTimeTopRatedMovies());
+    return topMovies;
     }
     
 }

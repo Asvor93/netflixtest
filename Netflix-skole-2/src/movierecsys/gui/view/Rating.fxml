@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movierecsys.gui.controller.RatingController">
+   <children>
+      <ListView fx:id="listViewRatings" layoutX="44.0" layoutY="72.0" prefHeight="285.0" prefWidth="309.0" />
+      <Text layoutX="44.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All ratings by" wrappingWidth="238.6708984375">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Text>
+      <Label fx:id="userName" layoutX="238.0" layoutY="14.0" text="User">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Button layoutX="492.0" layoutY="342.0" mnemonicParsing="false" onAction="#back" text="Back" />
+   </children>
+</AnchorPane>

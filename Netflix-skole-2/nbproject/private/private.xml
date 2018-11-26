@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/bll/FileReaderTester.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/controller/RecController.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/bll/MRSManager.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/gui/model/MovieModel.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/bll/MRSLogicFacade.java</file>
+            <file>file:/C:/Users/phili/Documents/GitHub/netflixtest/Netflix-skole-2/src/movierecsys/dal/DatabaseConnection.java</file>
+        </group>
     </open-files>
 </project-private>

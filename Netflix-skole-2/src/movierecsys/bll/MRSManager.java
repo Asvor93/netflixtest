@@ -20,7 +20,9 @@ import movierecsys.be.User;
 import movierecsys.bll.exception.MovieRecSysException;
 import movierecsys.dal.MovieDAO;
 import movierecsys.dal.MovieDbDAO;
+import movierecsys.dal.RatingDAO;
 import movierecsys.dal.RatingDbDAO;
+import movierecsys.dal.UserDAO;
 import movierecsys.dal.UserDbDAO;
 
 
@@ -64,7 +66,8 @@ public class MRSManager implements MRSLogicFacade {
                   if (y.getId()==x.getMovie()){
                      y.addCounter();
                      y.addRating(x.getRating());
-                     found=true;}
+                     found=true;
+                     break;} 
                 }
              if (found==false){
                  Movie toAdd = new Movie(x.getMovie(), 0, "");
@@ -100,14 +103,50 @@ public class MRSManager implements MRSLogicFacade {
             Logger.getLogger(MRSManager.class.getName()).log(Level.SEVERE, null, ex);
         }
   
-
   return topRated;
     }
 
     @Override
     public List<Movie> getMovieReccomendations(User user)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    List<Movie>movRec = new ArrayList();
+        try
+        {
+            List<Rating> userRatings = ratingDbDAO.getRatings(user);
+   
+            List<Movie> bestMovies = getAllTimeTopRatedMovies();
+            
+            int numberOfMovies = 0;
+            
+  
+            for (Movie x : bestMovies){
+            boolean found = false;
+                for (Rating y : userRatings){
+                    if (x.getId()==y.getMovie()){
+                        found = true;
+                        break;
+                    }     
+                }
+            if (found==false)
+            {
+                movRec.add(x);
+                numberOfMovies++;
+            }
+            
+            if (numberOfMovies==5){
+                break;}
+            }
+            
+        } catch (IOException ex)
+        {
+            Logger.getLogger(MRSManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        System.out.println("Top 5 movies:");
+    for (Movie x: movRec){
+        System.out.println(""+x.getTitle());
+    }
+    return movRec;
     }
 
     @Override

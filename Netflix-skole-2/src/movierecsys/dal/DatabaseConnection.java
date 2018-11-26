@@ -21,7 +21,7 @@ import java.sql.Connection;
 public class DatabaseConnection
 {
 private static final String SERVERNAME = "10.176.111.31";
-private static final String DATABASENAME = "";
+private static final String DATABASENAME = "x";
 private static String USER;
 private static String PASS;
 private static Connection CON;

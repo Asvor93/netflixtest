@@ -21,12 +21,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import movierecsys.be.Movie;
 import movierecsys.be.User;
-import movierecsys.bll.MRSManager;
+import movierecsys.bll.exception.MovieRecSysException;
 import movierecsys.dal.UserDbDAO;
+import movierecsys.gui.model.MovieModel;
 
 
 
@@ -47,7 +46,7 @@ public class LoginController implements Initializable
     @FXML
     private AnchorPane rootPane2;
     
-    MRSManager manager = new MRSManager();
+    private MovieModel movieModel;
 
     /**
      * Initializes the controller class.
@@ -56,8 +55,16 @@ public class LoginController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
       
-      ObservableList<User> userList = FXCollections.observableArrayList(manager.getAllUsers());
-      listView.setItems(userList);
+        try
+        {
+            movieModel=new MovieModel();
+            ObservableList<User> userList = FXCollections.observableArrayList(movieModel.getUsers());
+            listView.setItems(userList);
+        } catch (MovieRecSysException ex)
+        {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
       
     }    
 

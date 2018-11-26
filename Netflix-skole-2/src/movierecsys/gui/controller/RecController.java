@@ -8,6 +8,10 @@ package movierecsys.gui.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +21,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import movierecsys.be.Movie;
+import movierecsys.be.Rating;
 import movierecsys.be.User;
+import movierecsys.bll.MRSManager;
+import movierecsys.bll.exception.MovieRecSysException;
+import movierecsys.gui.model.MovieModel;
 
 /**
  * FXML Controller class
@@ -28,11 +37,13 @@ public class RecController implements Initializable
 {
 
     @FXML
-    private ListView<?> listView;
+    private ListView<Movie> listView;
     @FXML
     private AnchorPane anchorPane2;
     
     private User userLogin;
+    
+    private MovieModel movieModel;
 
     /**
      * Initializes the controller class.
@@ -40,7 +51,13 @@ public class RecController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        // TODO
+        try
+        {
+            movieModel= new MovieModel();
+        } catch (MovieRecSysException ex)
+        {
+            Logger.getLogger(RecController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
@@ -58,5 +75,10 @@ public class RecController implements Initializable
     public void setUser(User user)
     {
     userLogin=user;
+    }
+    
+    public void setListView(){
+            ObservableList<Movie> recMovies = FXCollections.observableArrayList(movieModel.getUserRec(userLogin));
+            listView.setItems(recMovies);
     }
 }

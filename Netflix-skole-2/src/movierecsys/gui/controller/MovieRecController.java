@@ -193,6 +193,7 @@ public class MovieRecController implements Initializable
         
         RecController recController = loader.getController();
         recController.setUser(userLogin);
+        recController.setListView();
      
         Stage stage = (Stage) anchorPane2.getScene().getWindow();   // skriv new stage hvis det skal være i et nyt vindue
         stage.setScene(new Scene(root));

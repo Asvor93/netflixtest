@@ -30,7 +30,15 @@ public class FileReaderTester
     {
 
         MRSManager test = new MRSManager();
-        test.getAllTimeTopRatedMovies();
+//        test.getAllTimeTopRatedMovies();
+        User userTest = new User(1150912,"Douadi Eri");
+        
+        test.getMovieReccomendations(userTest);
+        
+                
+              
+        
+        
         
     
         

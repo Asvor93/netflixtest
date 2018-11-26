@@ -23,6 +23,7 @@ public class MovieModel
     private ObservableList<Movie> movies;
     private ObservableList<User> users;
     private ObservableList<Movie> topMovies;
+    private ObservableList<Movie> recMovies;
 
     private MRSLogicFacade logiclayer;
 
@@ -31,6 +32,7 @@ public class MovieModel
         movies = FXCollections.observableArrayList();
         users = FXCollections.observableArrayList();
         topMovies = FXCollections.observableArrayList();
+        recMovies = FXCollections.observableArrayList();
         logiclayer = new MRSManager();
         movies.addAll(logiclayer.getAllMovies());
         
@@ -75,6 +77,11 @@ public class MovieModel
     {
     topMovies.addAll(logiclayer.getAllTimeTopRatedMovies());
     return topMovies;
+    }
+    
+    public ObservableList<Movie> getUserRec(User user){
+    recMovies.addAll(logiclayer.getMovieReccomendations(user));
+    return recMovies;
     }
     
 }
